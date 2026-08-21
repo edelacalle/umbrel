@@ -1,0 +1,32 @@
+services:
+  server-node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: caipyme-backend-server-node-bundle:local
+    container_name: caipyme-backend-server-node-bundle
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8787}:${PORT:-8787}"
+    environment:
+      PORT: "${PORT:-8787}"
+      COINGECKO_API_KEY: "${COINGECKO_API_KEY:-}"
+      FACTURASCRIPTS_URL: "${FACTURASCRIPTS_URL:-http://facturascripts}"
+      FACTURASCRIPTS_API_KEY: "${FACTURASCRIPTS_API_KEY:-}"
+      BITCOIN_EXPLORER_API: "${BITCOIN_EXPLORER_API:-https://blockstream.info/api}"
+      ETHEREUM_RPC_URL: "${ETHEREUM_RPC_URL:-https://ethereum-rpc.publicnode.com}"
+      TON_API_URL: "${TON_API_URL:-https://toncenter.com/api/v2}"
+      SOLANA_RPC_URL: "${SOLANA_RPC_URL:-https://api.mainnet-beta.solana.com}"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:' + (process.env.PORT || 8787) + '/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+networks:
+  default:
+    name: shared_net
+    external: true

@@ -1,0 +1,13 @@
+{
+  "name": "caipyme-backend-server-node-bundle",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node esbuild.config.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

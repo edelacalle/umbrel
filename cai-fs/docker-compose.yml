@@ -1,0 +1,27 @@
+services:
+
+  mysql:
+    image: mysql:8.2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  facturascripts:
+    image: facturascripts/facturascripts:latest
+    restart: always
+    ports:
+      - 8086:80
+    volumes:
+      - ./facturascripts:/var/www/html
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8088:8080
+
+networks:
+  default:
+    name: shared_net
