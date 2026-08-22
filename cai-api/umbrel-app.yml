@@ -138,3 +138,10 @@ path: ""
 # If you are opening the terminal of an app (Settings > Advanced settings > Terminal), you can specify the default docker compose service name here. (optional)
 # This is useful, if you have multiple services in your docker-compose.yml and want to open the terminal of a specific service.
 #defaultShell: app
+
+submission:
+  - id: FACTURASCRIPTS_API_KEY
+    label: FacturaScripts API Key
+    type: password
+    required: true
+    description: Clave de API de tu instancia de FacturaScripts
