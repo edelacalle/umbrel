@@ -1,0 +1,20 @@
+{
+  "name": "server-node",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "api": "workspace:*",
+    "connector-coingecko": "workspace:*",
+    "connector-facturascripts": "workspace:*",
+    "connector-fx": "workspace:*",
+    "connector-json": "workspace:*",
+    "connector-onchain": "workspace:*",
+    "connectors-core": "workspace:*",
+    "core": "workspace:*",
+    "dotenv": "^16.4.7",
+    "hono": "^4.13.2",
+    "zod": "^4.4.3"
+  }
+}
