@@ -30,7 +30,7 @@ category: files
 
 # The version of your app.
 # The version should correspond to the version of the upstream application.
-version: "developer"
+version: "1.0.1"
 
 # The port your app is reachable from a webbrowser. This should be a number between 1024 and 65535.
 # Note: This port does not need to be the same as the APP_PORT in the docker-compose.yml.
